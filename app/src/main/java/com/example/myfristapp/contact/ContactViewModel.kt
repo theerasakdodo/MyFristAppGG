@@ -12,9 +12,10 @@ import com.example.myfristapp.database.ContactDatabaseDao
 import com.example.myfristapp.databinding.FragmentContactBinding
 import kotlinx.coroutines.*
 
+import java.lang.StringBuilder
 
 class ContactViewModel(
-    private val contactdatabase: ContactDatabaseDao,
+    private val contactDatabase: ContactDatabaseDao,
     private val binding: FragmentContactBinding,
     application: Application
 ) : AndroidViewModel(application) {
@@ -22,7 +23,7 @@ class ContactViewModel(
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private val contacts = contactdatabase.get()
+    private val contacts = contactDatabase.get()
     val contactString = Transformations.map(contacts) { contacts ->
         formatContact(contacts)
     }
@@ -37,15 +38,15 @@ class ContactViewModel(
                 append(it.firstname)
                 append(", ")
                 append(it.lastname)
-                append(",")
+                append(", ")
                 append(it.phone)
                 append("<br>")
             }
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return Html.fromHtml(sb.toString(), Html.FROM_HTML_MODE_LEGACY)
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Html.fromHtml(sb.toString(), Html.FROM_HTML_MODE_LEGACY)
         } else {
-            return HtmlCompat.fromHtml(sb.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+            HtmlCompat.fromHtml(sb.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
         }
     }
 
@@ -66,7 +67,7 @@ class ContactViewModel(
 
     private suspend fun insert(contact: Contact) {
         withContext(Dispatchers.IO) {
-            contactdatabase.insert(contact)
+            contactDatabase.insert(contact)
         }
     }
 

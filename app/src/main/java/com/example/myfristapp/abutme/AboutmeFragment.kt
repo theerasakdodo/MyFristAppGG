@@ -4,14 +4,18 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.myfristapp.R
+import com.example.myfristapp.contact.ContactViewModel
+import com.example.myfristapp.contact.ContactViewModelFactory
+import com.example.myfristapp.database.ContactDatabase
 import com.example.myfristapp.databinding.FragmentAboutmeBinding
+import com.example.myfristapp.databinding.FragmentContactBinding
 
 
 class AboutmeFragment : Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,18 +31,17 @@ class AboutmeFragment : Fragment() {
         setHasOptionsMenu(true)
         return binding.root
     }
-    //add onclik handler
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.option_menu, menu)
+        inflater.inflate(R.menu.option_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(
-            item!!,
+            item,
             view!!.findNavController()
         ) || super.onOptionsItemSelected(item)
     }
-
 
 }
