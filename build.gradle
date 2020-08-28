@@ -5,6 +5,8 @@ buildscript {
         // Navigation
         navigationVersion = '2.3.0'
         kotlin_version = "1.4.0"
+        //Material
+        supportlibVersion = '1.2.0'
         }
     repositories {
         google()
