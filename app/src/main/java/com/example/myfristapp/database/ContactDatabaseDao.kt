@@ -7,9 +7,9 @@ import androidx.room.Query
 
 
 @Dao
-interface ContectDatabaseDao {
+interface ContactDatabaseDao {
     @Insert
-    fun insert(contect: Contect)
-    @Query("SELECT * from contect_table")
-    fun get(): LiveData<List<Contect>>
+    fun insert(contact: Contact)
+    @Query("SELECT * from contact_table")
+    fun get(): LiveData<List<Contact>>
 }

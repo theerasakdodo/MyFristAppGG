@@ -1,4 +1,4 @@
-package com.example.myfristapp
+package com.example.myfristapp.contact
 
 import android.os.Bundle
 import android.view.*
@@ -6,11 +6,12 @@ import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.example.myfristapp.databinding.FragmentContectBinding
+import com.example.myfristapp.R
+import com.example.myfristapp.databinding.FragmentContactBinding
 
 
 
-class ContectFragment : Fragment() {
+class ContactFragment : Fragment() {
     // TODO: Rename and change types of parameters
 
 
@@ -19,9 +20,9 @@ class ContectFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var binding = DataBindingUtil.inflate<FragmentContectBinding>(
+        var binding = DataBindingUtil.inflate<FragmentContactBinding>(
             inflater,
-            R.layout.fragment_contect,
+            R.layout.fragment_contact,
             container,
             false
         )

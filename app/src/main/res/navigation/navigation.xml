@@ -7,7 +7,7 @@
     app:startDestination="@id/aboutmeFragment">
     <fragment
         android:id="@+id/aboutmeFragment"
-        android:name="com.example.myfristapp.AboutmeFragment"
+        android:name="com.example.myfristapp.abutme.AboutmeFragment"
         android:label="fragment_aboutme"
         tools:layout="@layout/fragment_aboutme" >
         <action
@@ -16,9 +16,9 @@
     </fragment>
     <fragment
         android:id="@+id/contectFragment"
-        android:name="com.example.myfristapp.ContectFragment"
+        android:name="com.example.myfristapp.contact.ContactFragment"
         android:label="fragment_contect"
-        tools:layout="@layout/fragment_contect" >
+        tools:layout="@layout/fragment_contact" >
         <action
             android:id="@+id/action_contectFragment_to_aboutmeFragment"
             app:destination="@id/aboutmeFragment" />

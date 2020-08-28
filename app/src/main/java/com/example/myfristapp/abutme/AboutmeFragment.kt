@@ -1,4 +1,4 @@
-package com.example.myfristapp
+package com.example.myfristapp.abutme
 
 import android.os.Bundle
 import android.view.*
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.myfristapp.R
 import com.example.myfristapp.databinding.FragmentAboutmeBinding
 
 

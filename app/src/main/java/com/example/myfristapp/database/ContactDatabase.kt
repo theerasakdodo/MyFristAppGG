@@ -5,19 +5,19 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Contect::class], version = 1, exportSchema = false)
-abstract class ContectDatabase : RoomDatabase(){
-    abstract val contectDatabaseDao:ContectDatabaseDao
+@Database(entities = [Contact::class], version = 1, exportSchema = false)
+abstract class ContactDatabase : RoomDatabase(){
+    abstract val contactDatabaseDao: ContactDatabaseDao
     companion object{
         @Volatile
-        private var INSTANCE: ContectDatabase? = null
-        fun getInstance(context: Context): ContectDatabase{
+        private var INSTANCE: ContactDatabase? = null
+        fun getInstance(context: Context): ContactDatabase{
             synchronized(this) {
                 var instance = INSTANCE
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        ContectDatabase::class.java,
+                        ContactDatabase::class.java,
                         "contectdatabase"
                     )
                         .fallbackToDestructiveMigration()
