@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import androidx.room.Database
 import com.example.myfristapp.R
+import com.example.myfristapp.database.ContactDatabase
 import com.example.myfristapp.databinding.FragmentContactBinding
 
 
@@ -27,6 +30,16 @@ class ContactFragment : Fragment() {
             false
         )
         setHasOptionsMenu(true)
+        //Update ContactFragment.kt จาก sleepTracker
+        val application = requireNotNull(this.activity).application
+        val dataSource = ContactDatabase.getInstance(application).contactDatabaseDao
+        val viewModelFactory = ContactViewModelFactory(dataSource, binding, application)
+        val contactViewModel =
+            ViewModelProvider(
+                this, viewModelFactory
+            ).get(ContactViewModel::class.java)
+        binding.contactViewModel = contactViewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
     //add an onClick handler

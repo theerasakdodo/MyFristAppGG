@@ -8,8 +8,8 @@ import androidx.room.PrimaryKey
 data class Contact (
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0L,
-    @ColumnInfo(name = "FristName")
-    var fristname: String = "unnamed",
+    @ColumnInfo(name = "FirstName")
+    var firstname: String = "unnamed",
     @ColumnInfo(name = "LastName")
     var lastname: String = "",
     @ColumnInfo(name = "Phone")
