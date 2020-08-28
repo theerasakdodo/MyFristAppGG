@@ -58,8 +58,8 @@ class ContactViewModel(
     fun onContactAdd() {
         uiScope.launch {
             val newContact = Contact()
-            newContact.firstname = binding.editTextTextPersonName.text.toString()
-            newContact.lastname = binding.editTextTextPersonName.text.toString()
+            newContact.firstname = binding.editTextTextPersonFName.text.toString()
+            newContact.lastname = binding.editTextTextPersonLName.text.toString()
             newContact.phone = binding.editTextTextPersonPhone.text.toString()
             insert(newContact)
         }

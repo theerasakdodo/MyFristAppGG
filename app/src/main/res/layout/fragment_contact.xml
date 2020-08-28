@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -13,42 +14,94 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".contact.ContactFragment">
+        tools:context=".contact.ContactFragment"
+        android:background="@drawable/photofade">
 
-        <!-- TODO: Update blank fragment layout -->
 
-        <!-- TODO: Update blank fragment layout -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/editTextTextPersonName"
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="FirstName"
+                android:textAlignment="viewStart"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textStyle="bold|italic"
+                tools:text="FirstName"
+                android:layout_marginLeft="5dp"/>
+            <EditText
+                android:id="@+id/editTextTextPersonFName"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
                 android:ems="10"
-                android:inputType="text" />
+                android:inputType="text"
+                android:paddingTop="20dp"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="LastName"
+                android:textAlignment="viewStart"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textStyle="bold|italic"
+                tools:text="LastName"
+                android:layout_marginLeft="5dp"/>
+
+            <EditText
+                android:id="@+id/editTextTextPersonLName"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:ems="10"
+                android:inputType="text"
+                android:paddingTop="20dp"/>
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Phone"
+                android:textAlignment="viewStart"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textStyle="bold|italic"
+                tools:text="Phone"
+                android:layout_marginLeft="5dp"/>
 
             <EditText
                 android:id="@+id/editTextTextPersonPhone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="66dp"
                 android:ems="10"
-                android:inputType="text" />
+                android:inputType="text"
+                android:paddingTop="20dp"/>
 
-            <Button
+
+            <ImageView
                 android:id="@+id/buttonInsert"
-                android:layout_width="wrap_content"
+                android:layout_width="57dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#000000"
+                android:contentDescription="TODO"
                 android:onClick="@{()->contactViewModel.onContactAdd()}"
-                android:text="Button" />
+                android:visibility="visible"
+                app:srcCompat="@android:drawable/ic_input_add" />
 
             <TextView
                 android:id="@+id/textview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@{contactViewModel.contactString}" />
+
+                android:text="@{contactViewModel.contactString}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="96dp" />
+
 
         </LinearLayout>
 
